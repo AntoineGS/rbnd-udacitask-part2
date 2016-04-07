@@ -13,12 +13,12 @@ class TodoItem
     value = ' ⇨' if @priority == 'medium'
     value = ' ⇩' if @priority == 'low'
     value = '' if !@priority
-    return value
+    value
   end
 
   def details
     format_description(@description) + 'due: ' +
-      format_date([due: @due]) +
+      format_date(due: @due) +
       format_priority
   end
 end
