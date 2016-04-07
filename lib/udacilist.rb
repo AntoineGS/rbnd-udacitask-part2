@@ -1,16 +1,24 @@
 class UdaciList
+  include UdaciListErrors
+
   attr_reader :title, :items
 
   def initialize(options = {})
-    @title = options[:title]
+    @title = options[:title] ? options[:title] : 'Untitled List'
     @items = []
   end
 
   def add(type, description, options = {})
     type = type.downcase
-    @items.push TodoItem.new(description, options) if type == 'todo'
-    @items.push EventItem.new(description, options) if type == 'event'
-    @items.push LinkItem.new(description, options) if type == 'link'
+    if type == 'todo'
+      @items.push TodoItem.new(description, options)
+    elsif type == 'event'
+      @items.push EventItem.new(description, options)
+    elsif type == 'link'
+      @items.push LinkItem.new(description, options)
+    else
+      raise InvalidItemType, "'#{type}' is not a valid data type"
+    end
   end
 
   def delete(index)
