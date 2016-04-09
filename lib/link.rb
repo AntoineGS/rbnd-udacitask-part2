@@ -8,10 +8,12 @@ class LinkItem
   end
 
   def format_name
-    @site_name ? @site_name : ''
+    @site_name ? 'site name: ' +@site_name : ''
   end
 
   def details
-    format_indent(desription: @description) + 'site name: ' + format_name
+    format_indent(type: 'Link:') +
+      format_indent(description: @description) +
+      format_name
   end
 end
