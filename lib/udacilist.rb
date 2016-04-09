@@ -32,19 +32,23 @@ class UdaciList
     output
   end
 
-  def output(class_filter=nil)
-    puts '-' * @title.length
-    puts @title
-    puts '-' * @title.length
-    unless (class_filter.nil? || @items.any?{|item| item.is_a?(class_filter)})
-      puts "No items were found with given filter"
+  def output(class_filter = nil)
+    output_header
+    if !class_filter.nil? && !@items.any? { |item| item.is_a?(class_filter) }
+      puts 'No items were found with given filter'
     else
       @items.each_with_index do |item, position|
-        if (class_filter.nil? || item.is_a?(class_filter))
+        if class_filter.nil? || item.is_a?(class_filter)
           puts "#{position + 1}) #{item.details}"
         end
       end
     end
+  end
+
+  def output_header
+    puts '-' * @title.length
+    puts @title
+    puts '-' * @title.length
   end
 
   def filter(type_desc)

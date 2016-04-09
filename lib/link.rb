@@ -8,7 +8,7 @@ class LinkItem
   end
 
   def format_name
-    @site_name ? 'site name: ' +@site_name : ''
+    @site_name ? 'site name: ' + @site_name : ''
   end
 
   def details
