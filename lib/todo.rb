@@ -15,10 +15,10 @@ class TodoItem
   end
 
   def validated_priority(priority)
-    if ['high','medium','low',nil].include?(priority)
+    if ['high', 'medium', 'low', nil].include?(priority)
       priority
     else
-      raise InvalidPriorityValue, "'#{options[:priority]}' is not a valid priority"
+      raise InvalidPriorityValue, "'#{priority}' is not a valid priority"
     end
   end
 end
