@@ -29,11 +29,34 @@ class UdaciList
   end
 
   def all
+    output
+  end
+
+  def output(class_filter=nil)
     puts '-' * @title.length
     puts @title
     puts '-' * @title.length
-    @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+    unless (class_filter.nil? || @items.any?{|item| item.is_a?(class_filter)})
+      puts "No items were found with given filter"
+    else
+      @items.each_with_index do |item, position|
+        if (class_filter.nil? || item.is_a?(class_filter))
+          puts "#{position + 1}) #{item.details}"
+        end
+      end
     end
+  end
+
+  def filter(type_desc)
+    if type_desc == 'todo'
+      type = TodoItem
+    elsif type_desc == 'event'
+      type = EventItem
+    elsif type_desc == 'link'
+      type = LinkItem
+    else
+      raise InvalidFilterType, "#{type_desc} is not a valid filter type"
+    end
+    output(type)
   end
 end
