@@ -9,6 +9,7 @@ class EventItem
   end
 
   def details
-    format_description(@description) + 'event dates: ' + format_date(date1: @start_date, date2: @end_date)
+    format_description(@description) + 'event dates: ' +
+      format_date(date1: @start_date, date2: @end_date)
   end
 end

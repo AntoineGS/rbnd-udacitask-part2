@@ -17,10 +17,11 @@ module Listable
   end
 
   def format_priority(priority)
-    value = ' ⇧' if priority == 'high'
-    value = ' ⇨' if priority == 'medium'
-    value = ' ⇩' if priority == 'low'
-    value = '' if !priority
-    value
+    case
+    when priority == 'high' then ' ⇧'
+    when priority == 'medium' then ' ⇨'
+    when priority == 'low' then ' ⇩'
+    else ''
+    end
   end
 end

@@ -1,3 +1,4 @@
+# rubocop:disable all
 # require 'chronic'
 # require 'colorize'
 # Find a third gem of your choice and add it to your project
