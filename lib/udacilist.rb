@@ -49,13 +49,14 @@ class UdaciList
     puts '-' * @title.length
   end
 
-  def filter(type_desc)
-    type_desc = type_desc.downcase
-    if type_desc == 'todo' then TodoItem
-    elsif type_desc == 'event' then EventItem
-    elsif type_desc == 'link' then LinkItem
+  def filter(item_type)
+    case item_type
+    when 'todo' then item_type = TodoItem
+    when 'event' then item_type = EventItem
+    when 'link' then item_type = LinkItem
     else raise UdaciListErrors::InvalidFilterType,
                "#{type_desc} is not a valid filter type"
     end
+    output(item_type)
   end
 end
