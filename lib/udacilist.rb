@@ -1,6 +1,5 @@
 class UdaciList
   include UdaciListErrors
-
   attr_reader :title, :items
 
   def initialize(options = {})
