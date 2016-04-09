@@ -27,7 +27,6 @@ class UdaciList
     else
       raise IndexExceedsListSize, "item '#{index}' does not exist"
     end
-
   end
 
   def all
