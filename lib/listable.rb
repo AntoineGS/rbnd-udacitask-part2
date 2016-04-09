@@ -4,13 +4,15 @@ module Listable
   end
 
   def format_date(options = {})
-    if options.key?(:start_date) || options.key?(:end_date)
-      dates = start_date.strftime('%D') if start_date
-      dates << ' -- ' + end_date.strftime('%D') if end_date
-      dates = 'N/A' if !dates
-      dates
-    elsif options.key?(:due)
-        due ? due.strftime('%D') : 'No due date'
+    date1 = options[:date1]
+    date2 = options[:date2]
+
+    if date1
+      if date2
+        "#{date2.strftime('%D')} -- #{date2.strftime('%D')}"
+      else date1.strftime('%D')
+      end
+    else 'No due date'
     end
   end
 
@@ -21,5 +23,4 @@ module Listable
     value = '' if !priority
     value
   end
-
 end
