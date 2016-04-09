@@ -13,15 +13,15 @@ module Listable
         "#{date2.strftime('%D')} -- #{date2.strftime('%D')}"
       else date1.strftime('%D')
       end
-    else 'No due date'
+    else 'No date'
     end
   end
 
   def format_priority(priority)
-    case
-    when priority == 'high' then ' ⇧'
-    when priority == 'medium' then ' ⇨'
-    when priority == 'low' then ' ⇩'
+    case priority
+    when 'high' then ' ⇧'.colorize(:red)
+    when 'medium' then ' ⇨'.colorize(:orange)
+    when 'low' then ' ⇩'.colorize(:green)
     else ''
     end
   end

@@ -11,7 +11,7 @@ class EventItem
   def details
     format_indent(type: 'Event:') +
       format_indent(description: @description) +
-      'event dates: ' +
+      'Event Dates: ' +
       format_date(@start_date, @end_date)
   end
 end

@@ -5,9 +5,11 @@ module UdaciListErrors
   class IndexExceedsListSize < StandardError
   end
 
-  class InvalidPriorityValue < StandardError
-  end
-
   class InvalidFilterType < StandardError
+  end
+end
+
+module TodoErrors
+  class InvalidPriorityValue < StandardError
   end
 end

@@ -1,5 +1,4 @@
 class UdaciList
-  include UdaciListErrors
   attr_reader :title, :items
 
   def initialize(options = {})
@@ -9,14 +8,11 @@ class UdaciList
 
   def add(type, description, options = {})
     type = type.downcase
-    if type == 'todo'
-      @items.push TodoItem.new(description, options)
-    elsif type == 'event'
-      @items.push EventItem.new(description, options)
-    elsif type == 'link'
-      @items.push LinkItem.new(description, options)
-    else
-      raise InvalidItemType, "'#{type}' is not a valid data type"
+    if type == 'todo' then @items.push TodoItem.new(description, options)
+    elsif type == 'event' then @items.push EventItem.new(description, options)
+    elsif type == 'link' then @items.push LinkItem.new(description, options)
+    else raise UdaciListErrors::InvalidItemType,
+               "'#{type}' is not a valid data type"
     end
   end
 
@@ -24,7 +20,8 @@ class UdaciList
     if index.between?(1, @items.count)
       @items.delete_at(index - 1)
     else
-      raise IndexExceedsListSize, "item '#{index}' does not exist"
+      raise UdaciListErrors::IndexExceedsListSize,
+            "item '#{index}' does not exist"
     end
   end
 
@@ -46,21 +43,19 @@ class UdaciList
   end
 
   def output_header
+    puts
     puts '-' * @title.length
     puts @title
     puts '-' * @title.length
   end
 
   def filter(type_desc)
-    if type_desc == 'todo'
-      type = TodoItem
-    elsif type_desc == 'event'
-      type = EventItem
-    elsif type_desc == 'link'
-      type = LinkItem
-    else
-      raise InvalidFilterType, "#{type_desc} is not a valid filter type"
+    type_desc = type_desc.downcase
+    if type_desc == 'todo' then TodoItem
+    elsif type_desc == 'event' then EventItem
+    elsif type_desc == 'link' then LinkItem
+    else raise UdaciListErrors::InvalidFilterType,
+               "#{type_desc} is not a valid filter type"
     end
-    output(type)
   end
 end
