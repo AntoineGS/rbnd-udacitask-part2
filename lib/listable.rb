@@ -1,6 +1,11 @@
 module Listable
-  def format_description(description)
-    description.to_s.ljust(30)
+  def format_indent(options = {})
+    if options[:description]
+      indent = 40
+    elsif options[:type]
+      indent = 30
+    end
+    description.to_s.ljust(indent)
   end
 
   def format_date(options = {})

@@ -9,7 +9,7 @@ class TodoItem
   end
 
   def details
-    format_description(@description) + 'due: ' +
+    format_indent(description: @description) + 'due: ' +
       format_date(date1: @due) +
       format_priority(@priority)
   end
