@@ -8,10 +8,7 @@ module Listable
     description.to_s.ljust(indent)
   end
 
-  def format_date(options = {})
-    date1 = options[:date1]
-    date2 = options[:date2]
-
+  def format_date(date1, date2)
     if date1
       if date2
         "#{date2.strftime('%D')} -- #{date2.strftime('%D')}"
