@@ -22,7 +22,12 @@ class UdaciList
   end
 
   def delete(index)
-    @items.delete_at(index - 1)
+    if index.between?(1,@items.count)
+      @items.delete_at(index - 1)
+    else
+      raise IndexExceedsListSize, "item '#{index}' does not exist"
+    end
+
   end
 
   def all
