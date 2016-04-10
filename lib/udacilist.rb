@@ -1,4 +1,5 @@
 class UdaciList
+  include Input
   attr_reader :title, :items
 
   def initialize(options = {})

@@ -7,6 +7,7 @@ require 'colorize'
 require 'date'
 require_relative 'lib/listable'
 require_relative 'lib/errors'
+require_relative 'lib/input'
 require_relative 'lib/udacilist'
 require_relative 'lib/todo'
 require_relative 'lib/event'
@@ -48,3 +49,5 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter('event')
+
+new_list.prompt
