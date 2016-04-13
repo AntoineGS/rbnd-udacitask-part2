@@ -1,6 +1,18 @@
 module Input
+  def clear
+    system('clear') || system('cls')
+  end
+
+  def return_to_prompt
+    puts "\nPress any key to return to the main menu..."
+    gets
+    clear
+    prompt
+  end
+
   def prompt
-    puts 'Please enter the number ofone of options below:'
+    clear
+    puts 'Please enter the number of one of the options below:'
     puts '1. Add new item'
     puts '2. Remove item'
     puts '3. List items'
@@ -9,17 +21,15 @@ module Input
   end
 
   def manual_input(input)
+    clear
     case input
-    when '1'
-      manual_add
-    when '2'
-      manual_remove
-    when '3'
-      manual_list
+    when '1' then manual_add
+    when '2' then manual_remove
+    when '3' then manual_list
     when '9'
     else
       puts 'Invalid selection, please try again'
-      prompt
+      return_to_prompt
     end
   end
 
@@ -31,19 +41,25 @@ module Input
     puts 'Please an start date if applicable'
     option1 = gets.chomp.downcase
     puts 'Please an end/due date'
-    option1 = gets.chomp.downcase
+    option2 = gets.chomp.downcase
     if option1
-      add(type,description,[start_date: option1, end_date: option2])
+      add(type, description, start_date: option1, end_date: option2)
     else
-      add(type,description,[due: option2])
+      add(type, description, due: option2)
     end
+    return_to_prompt
   end
 
   def manual_remove
-
+    all
+    puts "\nPlease select an item to remove:"
+    item = gets.chomp
+    item.nil? ? manual_remove : delete(item.to_i)
+    return_to_prompt
   end
 
   def manual_list
-
+    all
+    return_to_prompt
   end
 end
