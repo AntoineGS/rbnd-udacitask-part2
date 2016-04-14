@@ -16,6 +16,7 @@ module Input
     puts '1. Add new item'
     puts '2. Remove item'
     puts '3. List items'
+    puts '4. Export to CSV'
     puts '9. Exit'
     manual_input(gets.chomp)
   end
@@ -26,6 +27,7 @@ module Input
     when '1' then manual_add
     when '2' then manual_remove
     when '3' then manual_list
+    when '4' then manual_export
     when '9'
     else
       puts 'Invalid selection, please try again'
@@ -60,6 +62,11 @@ module Input
 
   def manual_list
     all
+    return_to_prompt
+  end
+
+  def manual_export
+    export_to_csv
     return_to_prompt
   end
 end

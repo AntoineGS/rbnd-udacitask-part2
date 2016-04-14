@@ -60,4 +60,14 @@ class UdaciList
     end
     output(item_type)
   end
+
+  def export_to_csv
+    puts 'Please enter a file name:'
+    filename = gets.chomp
+    CSV.open(filename, 'w') do |csv|
+      @items.each_with_index do |item, position|
+        csv << [position + 1, item.details]
+      end
+    end
+  end
 end

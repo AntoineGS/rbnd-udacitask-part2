@@ -1,13 +1,25 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+  Rubocop, after hearing about it on a Ruby Rogues podcast, I decided to try it out and found it really helped me think about syntax and method lengths (amongst other things).
+  While not integrated within the application it was a very useful gem to play with at this stage of my learning.
+
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Simple Command Line UI
+      Using .prompt on a Udacilist object will go into a command line prompt mode which allows the user to use the methods available to create, list, add and export items.
+  b) Basic export to CSV option.
+      Very basic export with two columns, the item number and item details.
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+  Between 3-5 hours.
 2. What was the most rewarding challenge you conquered?
+  Getting rid of some of the Rubocop errors about Assignment Branch Condition size being too high.
 3. What two additional features did you build? Why?
+  (Described above)
+  I picked a command line UI since it felt like a good fit for such a program for it to be used by regular users.
+  Just about every program needs to have some sort of user input, this was a first step to building one.
+  The export is another useful feature to have and that many applications have and thus felt like a good fit for the application.
 4. Where do you still have room to grow?
+  I feel I use ifs and case statements too often, I will likely need to learn a way to reduce this use.
