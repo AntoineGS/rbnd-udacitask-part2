@@ -2,7 +2,7 @@
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
   Rubocop, after hearing about it on a Ruby Rogues podcast, I decided to try it out and found it really helped me think about syntax and method lengths (amongst other things).
-  While not integrated within the application it was a very useful gem to play with at this stage of my learning.
+  While not integrated within the application it was a very useful gem to play with at this stage of my learning (hence why it is not in the Gemfile).
 
 2. Describe the 2 features you added to the project.
   a) Simple Command Line UI
@@ -16,6 +16,7 @@
   Between 3-5 hours.
 2. What was the most rewarding challenge you conquered?
   Getting rid of some of the Rubocop errors about Assignment Branch Condition size being too high.
+  It really forced me to rethink my logic and search online for solutions.
 3. What two additional features did you build? Why?
   (Described above)
   I picked a command line UI since it felt like a good fit for such a program for it to be used by regular users.
@@ -23,3 +24,4 @@
   The export is another useful feature to have and that many applications have and thus felt like a good fit for the application.
 4. Where do you still have room to grow?
   I feel I use ifs and case statements too often, I will likely need to learn a way to reduce this use.
+  On another note, I cannot wait to start doing Rails! Three more chapters before I begin playing with it!
